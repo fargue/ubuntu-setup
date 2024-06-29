@@ -1,0 +1,2 @@
+export PROJECT_HOME=/mnt/d/projects
+export PH=${PROJECT_HOME}

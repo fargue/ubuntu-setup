@@ -17,45 +17,16 @@ zsh --version
 ```
 
 ### Initial Configure
-```
-zsh
-```
 
-Press 0 to create emptry .zshrc
+ln -s /mnt/d/projects/ubuntu-setup/zsh-environment-variables.lenovo-001 ~/.local-environment-variables
+ln -s /mnt/d/projects/ubuntu-setup/zsh-zshrc.lenovo-001  ~/.zshrc
 
-### Set zsh as default shell
-
-```
-echo $SHELL
-/bin/bash
-
-chsh -s $(which zsh)
-```
-
-Reboot
-
-### Install Oh my zsh
-```
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-```
-
-```
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
-
-Edit ~/.zshrc
-```
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
-```
 
 ## Keys
 
 https://phoenixnap.com/kb/generate-setup-ssh-key-ubuntu
 
-```
+```sh
 mkdir -p $HOME/.ssh
 chmod 0700 $HOME/.ssh
 ssh-keygen
@@ -64,7 +35,7 @@ ssh-copy-id -i [ssh-key-location] [username]@[server-ip-address]
 
 ## [Starship](https://starship.rs/)
 
-```
+```sh
 curl -sS https://starship.rs/install.sh | sh
 ```
 
@@ -74,9 +45,15 @@ https://starship.rs/config/
 ln -s /mnt/d/projects/ubuntu-setup/starship.toml ~/.config/starship.toml
 ```
 
+## Aliases (must have above starship setup done)
+
+```sh
+ln -sf /mnt/d/projects/ubuntu-setup/zsh-alias ${ZSH_CUSTOM}/aliases.zsh
+```
+
 ## pyenv
 
-```
+```sh
 sudo apt update
 
 sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
@@ -95,7 +72,7 @@ pyenv global 3.12.3
 
 ## Docker
 
-```
+```sh
 # Add Docker's official GPG key:
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -111,18 +88,18 @@ echo \
 sudo apt-get update
 ```
 
-```
+```sh
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
 ```
 
-```
+```sh
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
 ```
 
-```
+```sh
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 ```
