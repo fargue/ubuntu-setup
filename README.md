@@ -2,25 +2,45 @@
 
 ## Git setup
 
+```sh
 git config --global user.email "jerryarn@gmail.com"
 git config --global user.name "Jerry Arnold"
 git config --global credential.helper store
+```
 
 ## zsh
 
 [Install notes](https://phoenixnap.com/kb/install-zsh-ubuntu)
 
-```
+```sh
 sudo apt update
 sudo apt install git zsh -y
 zsh --version
 ```
 
+### Set zsh ad default shell
+
+```sh
+chsh -s $(which zsh)
+```
+
+### oh-my-zsh
+
+```sh
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+
 ### Initial Configure
 
+```sh
 ln -s /mnt/d/projects/ubuntu-setup/zsh-environment-variables.lenovo-001 ~/.local-environment-variables
 ln -s /mnt/d/projects/ubuntu-setup/zsh-zshrc.lenovo-001  ~/.zshrc
 
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+```
 
 ## Keys
 
